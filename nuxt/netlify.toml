@@ -1,0 +1,8 @@
+[[redirects]]
+  from = "/holidays/*"
+  to = "https://computravel-staging.netlify.app/search"
+  status = 301
+  
+  force = true
+
+

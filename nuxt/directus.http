@@ -1,0 +1,5 @@
+get http://localhost:8055/items/images?fields=*,image.description,image.filename_disk,image.filename_download&filter=%7B%22name%22:%22404%22%7D
+Authorization: Bearer WSpGKVz_qmFgP8MUnB9KnU_DB5RBAiFO
+
+###
+get http://localhost:8055/items/images?fields=*,image.description,image.filename_disk,image.filename_downloadsx§x§

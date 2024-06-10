@@ -1,0 +1,28 @@
+<div style="margin: auto;
+    display:block;
+    width:100%; ">
+  <img  style="margin:auto;border-radius:7px; display:block;" src="{{data.imageURL}}">
+</div>
+<h2 style="text-align:center">{{ data.enquiryType }} Enquiry Details</h2>
+<h4 style="text-align:center">Assigned consultant: {{ data.consultant }}</h4>
+<br>
+<br>
+<table style="color:black;margin:auto; width:90%" col:2>
+  {% for pair in data.customer %}
+    {% assign keyval = pair | split: ':' %}
+
+    <tr>
+      <td style="width:25%; border-style:solid;padding:10px; border-radius:10px; border-width:1px; border-color:#D3D3D3">{{ keyval[0] }}</td>
+      <td style="border-style:solid;padding:10px; border-radius:10px; border-width:1px;border-color:#D3D3D3">  {{ keyval[1] }}</td>
+    </tr>
+  {% endfor %}
+  {% for pair in data.enquiry %}
+    {% assign keyval = pair | split: ':' %}
+
+    <tr>
+       <td style="width:25%; border-style:solid;padding:10px; border-radius:10px; border-width:1px;border-color:#D3D3D3">{{ keyval[0] }}</td>
+     
+       <td style=" border-style:solid;padding:10px; border-radius:10px; border-width:1px; border-color:#D3D3D3">{{ keyval[1] }}</td>
+    </tr>
+  {% endfor %}
+</table>

@@ -1,0 +1,103 @@
+<template>
+  <div class="relative">
+    <div class="flex flex-col justify-between">
+      <label v-if="validationObject" class="tracking-wide pb-5"
+        >{{ label }}
+      </label>
+      <input
+        autocomplete="off"
+        :id="inputName"
+        :name="inputName"
+        @input="setValue"
+        class="
+          w-full
+          rounded-xl
+          bg-white
+          input-outline
+          p-4
+          hover:shadow-none
+          cursor-pointer
+        "
+        :type="type"
+        :class="{
+          greenClass:
+            validationObject.$error === false &&
+            validationObject.$anyDirty === true,
+          redClass: validationObject.$error === true,
+        }"
+        :placeholder="placeholder"
+        v-model="value"
+        @blur="validationObject.$touch"
+      />
+    </div>
+    <slot />
+
+    <div
+      v-show="validationObject.$error"
+      class="
+        absolute
+        left-[80%]
+        top-[10%]
+        flex
+        items-center
+        w-full
+        animate__animated animate__headShake
+        text-xs text-left text-red-900
+      "
+    >
+      <div class="text-red-900">
+        {{ errorMessage }}
+      </div>
+    </div>
+    <slot />
+  </div>
+</template>
+<script setup>
+import { useStore } from "@/stores/search";
+const searchStore = useStore();
+const props = defineProps({
+  inputName: {
+    type: String,
+    required: true,
+  },
+  label: {
+    type: String,
+    required: true,
+  },
+  type: {
+    type: String,
+    required: true,
+  },
+  errorMessage: {
+    type: String,
+  },
+  validationObject: {
+    type: Object,
+  },
+
+  placeholder: {
+    type: String,
+  },
+});
+const emit = defineEmits(["setValue"]);
+const valueName = computed(() => {
+  if (props.inputName == "category" || props.inputName == "destination") {
+    return props.inputName + ".name";
+  
+} else {
+  return  props.inputName;
+}
+});
+const value = ref(searchStore[valueName.value]);
+
+
+watch(
+  () => searchStore[valueName],
+  (a, b) => {
+    if (a !== b) {
+      value.value = a;
+    }
+    searchStore.fireQuery();
+  }
+);  
+</script>

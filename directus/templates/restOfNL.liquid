@@ -1,0 +1,129 @@
+<section background-color="white">
+  <mj-column padding-top="10px">
+    <h2 align="center" font-family="Titillium Web, Trebuchet MS" color="black" font-size="30px">
+      R${package.price}</h2>
+  </mj-column>
+  <mj-column>
+    <mj-table>
+
+      <tr>
+        <td align="end" font-family="Titillium Web, Trebuchet MS">departs</td>
+        <td align="center" font-family="Titillium Web, Trebuchet MS" style="padding: 0 0 0 15px;">${package.from
+        }</td>
+      </tr>
+      <tr>
+        <td align="end" font-family="Titillium Web, Trebuchet MS" style="padding: 0 0px 0 0;">book before</td>
+        <td align="center" font-family="Titillium Web, Trebuchet MS" style="padding: 0 0 0 15px;">${package.valid_to
+        }</td>
+      </tr>
+    </mj-table>
+
+  </mj-column>
+</section>
+<section>
+  <mj-column>
+    <mj-button border-radius="25px" background-color="#84CC16" href="${strapi.config.get('server.host', '0.0.0.0')}/packages/${package.ct_ref}/${package.slug}">read more</mj-button>
+  </mj-column>
+</section>
+</div>`
+<mjml>
+    <mj-head>
+      <mj-font name="TitiliumWeb" href="https://fonts.googleapis.com/css?family=Titilium+Web" />
+      <mj-font name="Open" href="https://fonts.googleapis.com/css?family=Open+Sans:wght@300" />
+      <mj-style>
+      @media (max-width:480px) { 
+        .star {
+          width:10px!important
+        }
+      }
+    </mj-style>
+    </mj-head>
+  
+    <mj-body>
+      <div background-color="#E6EEEA" full-width="full-width" padding="20px ">
+        <section background-color="white" border-radius="25px">
+  
+          <mj-column padding="0px 20px 20px 20px">
+  
+            <mj-image src="https://res.cloudinary.com/sharkfin/image/upload/v1665578896/computravel_logo_final_dropshadow2_04_270b29c896.png?updated_at=2022-10-12T12:48:24.918Z"></mj-image>
+  
+  
+  
+            <h2 align="center" font-size="30px" color="#17602d" font-family="Titillium Web, Trebuchet MS">${newsletter.title
+      }</h2>
+  
+            <mj-image width="500px" border-radius="20px" src="${newsletter.featured_image ? newsletter.featured_image.url : ""
+      }">
+  
+            </mj-image>
+  
+            <h2 font-family="Titillium Web, Trebuchet MS" color="#17602d" font-size="20px">${newsletter.subtitle
+      }</h2>
+            <h2 font-size="18px" font-family="Open Sans">${newsletter.body
+      }</h2>
+  
+          </mj-column>
+        </section>
+  
+        <section padding="20px 0px 0px 0px">
+          <mj-column padding="0">
+            <h2 font-size="25px" color="#17602d" font-family="Titillium Web, Trebuchet MS" align="center">Latest holiday packages to keep you exploring</h2>
+  
+          </mj-column>
+        </section>
+        
+             ${packagesMJML}
+  <div padding="20px 0px">
+  <div background-color="white" border-radius="25px" padding="30px 20px">
+        <section>
+          <mj-column >
+  
+            <h2 align="center">
+              Where will you go next?</h2>
+            <h2 align="center">Get in touch or follow us on the socials, our travel experts are here to help you find your next adventure.</h2>
+            <mj-button href="https://computravel.co.za/enquire-form" border-radius="50px" background-color="#84CC16">enquire</mj-button>
+          </mj-column>
+  
+        </section>
+        <section>
+          <mj-column>
+            <mj-social  font-size="15px" icon-size="30px" mode="horizontal">
+              <mj-social-element  name="facebook" href="https://www.facebook.com/Computravel/">
+  
+              </mj-social-element>
+              <mj-social-element name="instagram" href="https://www.instagram.com/computravel/?hl=en">
+  
+              </mj-social-element>
+  
+              <mj-social-element name="twitter" href="https://twitter.com/computravel">
+  
+              </mj-social-element>
+            </mj-social>
+          </mj-column>
+        </section>
+        </div>
+        </div>
+        
+        
+        <section padding="5px 0px">
+          <mj-column padding="5px 0px">
+            <h2 font-family="Open Sans, Trebuchet MS">
+              ${newsletter.small_print}
+            </h2>
+          </mj-column>
+  
+        </section>
+        <section padding="0px">
+          <mj-column padding="0px">
+            <mj-image src="https://res.cloudinary.com/sharkfin/image/upload/v1665051291/asata_logo_full_500_sq_transp_c89f6e45bf.png?updated_at=2022-10-06T10:14:53.389Z" />
+          </mj-column>
+        </section>
+         <section padding="0px">
+            <mj-column padding="0px">
+              <h2 font-family="Open Sans, Trebuchet MS" >We are accredited members of ASATA whose pivotal role is to ensure and promote the highest standards of professionalism and ethics within the South African travel industry.</h2>
+            </mj-column>
+          </section>
+      </div>
+  
+    </mj-body>
+  </mjml>

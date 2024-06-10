@@ -1,0 +1,6 @@
+/directus/data/
+/directus/.env
+/nuxt/.env
+docker-compose.yml
+/nuxt/Dockerfile
+/nuxt/node_modules
